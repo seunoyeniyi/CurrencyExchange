@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #E4E4E4;
+    font-size: 16px;
+    }
+    
+    a {
+    color: #4E71BA;
+    text-decoration: none;
+    }
+    a:hover {
+        color: #2F55A4;
+    }
+    img {
+        max-width: 100%;
+        max-height: auto;
+    }
+    
+    * {box-sizing: border-box;}
+    
+    /*First we must calculate the percentage for one column: 100% / 12 columns = 8.33%*/
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+    /* Always Design for Mobile First */
+     /* When the screen (browser window) gets smaller than 768px, each column should have a width of 100%: */
+     @media only screen and (max-width: 768px) {
+        /* For mobile phones: */
+        [class*="col-"] {
+          width: 100%;
+        }
+      }
+    
+      /*FOR TABLETS*/
+      @media only screen and (min-width: 600px) {
+        /* For tablets: */
+        .col-s-1 {width: 8.33%;}
+        .col-s-2 {width: 16.66%;}
+        .col-s-3 {width: 25%;}
+        .col-s-4 {width: 33.33%;}
+        .col-s-5 {width: 41.66%;}
+        .col-s-6 {width: 50%;}
+        .col-s-7 {width: 58.33%;}
+        .col-s-8 {width: 66.66%;}
+        .col-s-9 {width: 75%;}
+        .col-s-10 {width: 83.33%;}
+        .col-s-11 {width: 91.66%;}
+        .col-s-12 {width: 100%;}
+      }
+    
+    
+    
+    
+    /* All these columns should be floating to the left, and have a padding of 15px: */
+    [class*="col-"] {
+        float: left;
+        padding: 15px;
+      }
+    
+      /* The columns inside a row are all floating to the left, and are therefore taken out of the flow 
+      of the page, and other elements will be placed as if the columns do not exist. 
+      To prevent this, we will add a style that clears the flow: */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+
+/* BUTTON - NUEMORPHISM */
+      .btn, a.btn {
+        padding: 10px 20px 10px 20px;
+        color: black;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      /* primary button */
+      .btn-primary, a.btn-primary {
+        color: white;
+        /* neumorphism */
+        border-radius: 11px;
+background: #2F55A4;
+box-shadow: inset 5px 5px 11px #294a8f, 
+            inset -5px -5px 11px #3560b9;
+      }
+      .btn-primary:hover, a.btn-primary:hover {
+        border-radius: 11px;
+background: #2F55A4;
+box-shadow: inset 5px 5px 100px #132242, 
+            inset -5px -5px 100px #4b88ff;
+      }
+
+
+
+    /* NAVBAR */
+    .navbar {
+        height: 60px;
+        padding: 5px;
+        padding-left: 10px;
+        border-radius: 0px;
+        background: #ffffff;
+    }
+    .navbar .site-identity {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .navbar .site-identity a {
+        color: black;
+        font-size: 30px;
+        font-weight: bold;
+        display: block;
+        padding: 5px 20px 5px 20px;
+        /* neumorphism */
+        border-radius: 11px;
+        background: #ffffff;
+        box-shadow:  5px 5px 29px #f0f0f0, 
+             -5px -5px 29px #ffffff;
+        
+    }
+    .navbar .navbar-menu-btn {
+        float: right;
+        padding: 6px 10px 6px 10px;
+        font-weight: bold;
+        font-size: 30px;
+        color: black;
+        border: none;
+        outline: none;
+        margin-right: 10px;
+        /* neumorphism */
+        border-radius: 8px;
+        background: #ffffff;
+        box-shadow:  6px 6px 18px #e3e3e3, 
+             -6px -6px 18px #ffffff;
+    }
+    .navbar .navbar-menu-btn:hover, .navbar .navbar-menu-btn.active {
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: inset 5px 5px 31px #f2f2f2, 
+                  inset -5px -5px 31px #ffffff;
+    }
+
+    .navbar .navbar-menus {
+      position: absolute;
+      width: 100%;
+      top: 60px;
+      left: 0;
+      padding: 10px;
+      background-color: white;
+      list-style-type: none;
+      margin: 0;
+      display: none;
+  }
+  .navbar .navbar-menus li {
+    padding: 0;
+    margin: 5px;
+  }
+  .navbar .navbar-menus li > a {
+    /* nuemorphism */
+    border-radius: 11px;
+    background: #ffffff;
+    box-shadow:  5px 5px 10px #f5f5f5, 
+             -5px -5px 10px #ffffff;
+  }
+  .navbar .navbar-menus li > a:hover {
+    border-radius: 11px;
+    background: #ffffff;
+    box-shadow: inset 5px 5px 10px #f5f5f5, 
+            inset -5px -5px 10px #ffffff;
+  }
+  .navbar .navbar-menus li > a, .navbar .navbar-menus > a {
+    padding: 10px;
+    display: block;
+    color: #2F477A;
+    font-weight: 600;
+  }
+  .navbar .navbar-menus li a .fa-caret-down {
+    /* float: right; */
+    color: black;
+  }
+
+  .navbar .navbar-menus .btn {
+    margin: 5px 10px 5px 10px;
+  }
+  .navbar .navbar-menus .btn-primary {
+    color: white;
+  }
+  .navbar .navbar-menus li ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0px 2px 10px;
+    display: none;
+  }
+  .navbar .navbar-menus li ul li a {
+    padding: 10px;
+    display: block;
+    font-weight: normal;
+  }
+  .navbar .navbar-menus li ul li.li-content a {
+    display: grid;
+    grid-template-columns: 40px auto;
+    padding: 5px;
+  }
+  .navbar .navbar-menus li ul li.li-content a > div:first-child {
+    padding-top: 40px;
+  }
+  .navbar .navbar-menus li ul li.li-content a p {
+    color: grey;
+    font-weight: normal;
+  }
