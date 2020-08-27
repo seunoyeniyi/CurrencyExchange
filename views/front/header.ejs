@@ -1,18 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CurrencyExchange App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/script.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-identity">
 
+    <nav class="navbar">
+        <div class="site-identity">
+            <a href="/">xChange</a>
         </div>
-        <div class="navbar-menus"></div>
-        <button class="navbar-menu-btn"><i class="fa fa-bars"></i></button>
+        <ul id="navbar-menus" class="navbar-menus">
+            <li><a href="javascript:void(0);">Products <i class="fa fa-caret-down"></i></a>
+                <ul>
+                    <li class="li-content">
+                        <a href="">
+                            <div><img src="images/gift_card_30px.png"></div>
+                            <div>
+                                <h4>Giftcards</h4>
+                                <p>Buy and Sell Giftcards at cheap rate.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="li-content">
+                        <a href="">
+                            <div><img src="images/bitcoin_30px.png"></div>
+                            <div>
+                                <h4>Bitcoin</h4>
+                                <p>Fast Bitcoin trading. Buy and Sell.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="li-content">
+                        <a href="">
+                            <div><img src="images/icons8_topup_payment_30px.png"></div>
+                            <div>
+                                <h4>Airtime/Subscription</h4>
+                                <p>Pay for Airtime, Bills, and Subscription</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="">Rates Calc. <i class="fa fa-caret-down"></i></a></li>
+            <li><a href="javascript:void(0);">Learn <i class="fa fa-caret-down"></i></a></li>
+            <li><a href="javascript:void(0);">My Account <i class="fa fa-caret-down"></i></a>
+                <ul>
+                    <li><a href="">Dashboard</a></li>
+                    <li><a href="">Transactions</a></li>
+                    <li><a href="">Wallet</a></li>
+                    <li><a href="">Logout</a></li>
+                </ul>
+            </li>
+            <li><a href="">Sign in <i class="fa fa-caret-down"></i></a></li>
+            <li><a href="">Sign up <i class="fa fa-caret-down"></i></a></li>
+            <a href="" class="btn btn-primary">Get Started</a>
+
+        </ul>
+        <button id="navbar-menu-btn" class="navbar-menu-btn"><i class="fa fa-bars"></i></button>
     </nav>
