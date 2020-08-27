@@ -1,0 +1,22 @@
+{
+  "name": "currencyexchange",
+  "version": "1.0.0",
+  "description": "Currency Exchange App for Nigerian, Ghanian, for exchanging currency like bitcoin, ether-um, trons, or gift card like iTunes, Google Play, Microsoft, Stream, Amazon, etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seunoyeniyi/CurrencyExchange.git"
+  },
+  "author": "Seun Oyeniyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seunoyeniyi/CurrencyExchange/issues"
+  },
+  "homepage": "https://github.com/seunoyeniyi/CurrencyExchange#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
