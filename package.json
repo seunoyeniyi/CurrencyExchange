@@ -2,7 +2,7 @@
   "name": "currencyexchange",
   "version": "1.0.0",
   "description": "Currency Exchange App for Nigerian, Ghanian, for exchanging currency like bitcoin, ether-um, trons, or gift card like iTunes, Google Play, Microsoft, Stream, Amazon, etc.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,6 @@
   "dependencies": {
     "ejs": "^3.1.5",
     "express": "^4.17.1"
-  }
+  },
+  "devDependencies": {}
 }
