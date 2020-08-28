@@ -12,12 +12,12 @@
 </head>
 <body>
 
-    <nav class="navbar">
+<nav id="navbar" class="navbar <% if (locals.page.name == "home") { %> <%= "home" %><% } %>">
         <div class="site-identity">
             <a href="/">xChange</a>
         </div>
         <ul id="navbar-menus" class="navbar-menus">
-            <li><a href="javascript:void(0);">Products <i class="fa fa-caret-down"></i></a>
+            <li><a href="javascript:void(0);" class="neu-default">Products <i class="fa fa-caret-down"></i></a>
                 <ul>
                     <li class="li-content">
                         <a href="">
@@ -48,20 +48,24 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="">Rates Calc. <i class="fa fa-caret-down"></i></a></li>
-            <li><a href="javascript:void(0);">Learn <i class="fa fa-caret-down"></i></a></li>
-            <li><a href="javascript:void(0);">My Account <i class="fa fa-caret-down"></i></a>
+            <li><a href="" class="neu-default">Rates Calc. <i class="fa fa-caret-down"></i></a></li>
+            <li><a href="javascript:void(0);" class="neu-default">My Account <i class="fa fa-caret-down"></i></a>
                 <ul>
-                    <li><a href="">Dashboard</a></li>
-                    <li><a href="">Transactions</a></li>
-                    <li><a href="">Wallet</a></li>
-                    <li><a href="">Logout</a></li>
+                    <li><a href="" class="neu-default">Dashboard</a></li>
+                    <li><a href="" class="neu-default">Transactions</a></li>
+                    <li><a href="" class="neu-default">Wallet</a></li>
+                    <li><a href="" class="neu-default">Logout</a></li>
                 </ul>
             </li>
-            <li><a href="">Sign in <i class="fa fa-caret-down"></i></a></li>
-            <li><a href="">Sign up <i class="fa fa-caret-down"></i></a></li>
-            <a href="" class="btn btn-primary">Get Started</a>
+            <li><a href="" class="neu-default">Sign in <i class="fa fa-caret-down"></i></a></li>
+            <li><a href="" class="neu-default">Sign up <i class="fa fa-caret-down"></i></a></li>
+            <li><a href="javascript:void(0);" class="neu-default">Learn</i></a></li>
+            <li><a href="javascript:void(0);" class="neu-default">Blog</i></a></li>
+            <li><a href="javascript:void(0);" class="neu-default">Help</i></a></li>
+            <a href="" class="btn btn-primary neu-default">Get Started</a>
 
         </ul>
-        <button id="navbar-menu-btn" class="navbar-menu-btn"><i class="fa fa-bars"></i></button>
+        <button id="navbar-menu-btn" class="navbar-menu-btn neu-default"><i class="fa fa-bars"></i></button>
     </nav>
+
+    <div class="web-container">
