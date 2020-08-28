@@ -87,22 +87,46 @@ body {
         border-radius: 5px;
         text-align: center;
       }
+      .btn-sm {
+        padding: 5px 10px 5px 10px;
+        font-size: 13px;
+      }
+      .btn-md {
+        padding: 10px 20px 10px 20px;
+      }
+      .btn-lg, a.btn-lg {
+        padding: 15px 25px 15px 25px;
+        font-size: 20px;
+      }
+      .btn-xl,a.btn-xl {
+        padding: 20px 30px 20px 30px;
+        font-size: 25px;
+      }
 
-      /* primary button */
-      .btn-primary, a.btn-primary {
-        color: white;
-        /* neumorphism */
-        border-radius: 11px;
-background: #2F55A4;
-box-shadow: inset 5px 5px 11px #294a8f, 
-            inset -5px -5px 11px #3560b9;
-      }
-      .btn-primary:hover, a.btn-primary:hover {
-        border-radius: 11px;
-background: #2F55A4;
-box-shadow: inset 5px 5px 100px #132242, 
-            inset -5px -5px 100px #4b88ff;
-      }
+
+/* NEUMORPISM CLASSES */
+.neu-default {
+background: #e4e4e4;
+box-shadow:  5px 5px 10px #929292, 
+             -5px -5px 10px #ffffff;
+}
+.neu-default.active {
+  background: #e4e4e4;
+  box-shadow: inset 5px 5px 10px #929292, 
+              inset -5px -5px 10px #ffffff;
+}
+
+.btn-flat {
+  box-shadow: none;
+}
+.btn-flat.btn-primary {
+  background-color: #4E71BA;
+  color: white;
+}
+.btn-flat.btn-primary:hover {
+  background-color: #2F55A4;
+  color: white;
+}
 
 
 
@@ -112,8 +136,14 @@ box-shadow: inset 5px 5px 100px #132242,
         padding: 5px;
         padding-left: 10px;
         border-radius: 0px;
-        background: #ffffff;
+        background: #e3e3e3;
+        border-bottom: 1px solid #dfdfdf;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
     }
+ 
     .navbar .site-identity {
         display: inline-block;
         vertical-align: middle;
@@ -124,11 +154,6 @@ box-shadow: inset 5px 5px 100px #132242,
         font-weight: bold;
         display: block;
         padding: 5px 20px 5px 20px;
-        /* neumorphism */
-        border-radius: 11px;
-        background: #ffffff;
-        box-shadow:  5px 5px 29px #f0f0f0, 
-             -5px -5px 29px #ffffff;
         
     }
     .navbar .navbar-menu-btn {
@@ -140,18 +165,9 @@ box-shadow: inset 5px 5px 100px #132242,
         border: none;
         outline: none;
         margin-right: 10px;
-        /* neumorphism */
         border-radius: 8px;
-        background: #ffffff;
-        box-shadow:  6px 6px 18px #e3e3e3, 
-             -6px -6px 18px #ffffff;
     }
-    .navbar .navbar-menu-btn:hover, .navbar .navbar-menu-btn.active {
-      border-radius: 8px;
-      background: #ffffff;
-      box-shadow: inset 5px 5px 31px #f2f2f2, 
-                  inset -5px -5px 31px #ffffff;
-    }
+
 
     .navbar .navbar-menus {
       position: absolute;
@@ -159,7 +175,7 @@ box-shadow: inset 5px 5px 100px #132242,
       top: 60px;
       left: 0;
       padding: 10px;
-      background-color: white;
+      background-color: #E4E4E4;
       list-style-type: none;
       margin: 0;
       display: none;
@@ -169,20 +185,12 @@ box-shadow: inset 5px 5px 100px #132242,
     margin: 5px;
   }
   .navbar .navbar-menus li > a {
-    /* nuemorphism */
-    border-radius: 11px;
-    background: #ffffff;
-    box-shadow:  5px 5px 10px #f5f5f5, 
-             -5px -5px 10px #ffffff;
+    margin: 10px 0px;
+    border-radius: 10px;
   }
-  .navbar .navbar-menus li > a:hover {
-    border-radius: 11px;
-    background: #ffffff;
-    box-shadow: inset 5px 5px 10px #f5f5f5, 
-            inset -5px -5px 10px #ffffff;
-  }
+
   .navbar .navbar-menus li > a, .navbar .navbar-menus > a {
-    padding: 10px;
+    padding: 12px;
     display: block;
     color: #2F477A;
     font-weight: 600;
@@ -193,15 +201,14 @@ box-shadow: inset 5px 5px 100px #132242,
   }
 
   .navbar .navbar-menus .btn {
-    margin: 5px 10px 5px 10px;
-  }
-  .navbar .navbar-menus .btn-primary {
-    color: white;
+    margin: 15px 50px 5px 50px;
+    border-radius: 10px;
+
   }
   .navbar .navbar-menus li ul {
     list-style-type: none;
     padding: 0;
-    margin: 10px 0px 2px 10px;
+    margin: 10px 0px 2px 30px;
     display: none;
   }
   .navbar .navbar-menus li ul li a {
@@ -220,4 +227,49 @@ box-shadow: inset 5px 5px 100px #132242,
   .navbar .navbar-menus li ul li.li-content a p {
     color: grey;
     font-weight: normal;
+  }
+
+  .navbar.home {
+    background: none;
+    border-bottom: none;
+  }
+  .navbar.home .site-identity a {color: white;}
+  .navbar.home .navbar-menu-btn {
+    background: none;
+    color: white;
+    box-shadow: none;
+  }
+
+
+  .home-intro {
+    background-image: url(../images/home-intro-02.png);
+    background-size: cover;
+    height: auto;
+    color: white;
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  .home-intro .intro {
+    text-align: center;
+    margin-top: 30px;
+    line-height: 55px;
+    padding: 20px;
+  }
+  .home-intro .intro h1 {
+    font-size: 35px;
+  }
+
+  .container {
+    margin: 20px 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+
+  .our-app {
+    text-align: center;
+  }
+  .our-app img {
+    width: 100%;
+    height: auto;
   }

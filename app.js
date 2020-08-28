@@ -9,9 +9,9 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
-    res.render('front/index');
+    res.render('front/index', {page: {name:"home"}});
 });
 
-app.listen(3000, function() {
+app.listen(80, function() {
     console.log("Server running at port 3000, http://localhost:3000 ...");
 });
