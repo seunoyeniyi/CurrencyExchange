@@ -214,8 +214,7 @@ box-shadow:  5px 5px 10px #929292,
       width: 100%;
       top: 60px;
       left: 0;
-      padding: 10px;
-      padding-bottom: 20px;
+      padding: 10px 10px 20px 10px;
       background-color: #E4E4E4;
       list-style-type: none;
       margin: 0;
