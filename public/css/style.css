@@ -527,14 +527,14 @@ like a tickmark */
   width:100%;
   margin: 5px 0px;
 }
-.input-group > div{
+.input-group > div {
   display: table-cell;
-  border: 1px solid #ddd;
   vertical-align: middle;  /* needed for Safari */
 }
 .input-group-icon {
   color: #777;
   padding: 0 12px;
+  border-radius: 5px 0px 0px 5px;
   background: linear-gradient(145deg, #f4f4f4, #cdcdcd);
 }
 .input-group-area {

@@ -26,6 +26,16 @@ router.get('/register', function(req, res) {
     });
 });
 
+// POSTS ROUTES
+router.post('/login', function(req, res) {
+    res.send("Hello submitted");
+    console.log(document.cookie);
+});
+router.post('/register', function(req, res) {
+    res.send("Hello submitted");
+    console.log(document.cookie);
+});
+
 
 
 
