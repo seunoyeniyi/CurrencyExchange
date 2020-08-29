@@ -13,5 +13,5 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', frontEnd);
 
 app.listen(8080, function() {
-    console.log("Server running at port 3000, http://localhost:3000 ...");
+    console.log("Server running at port 8080, http://localhost:8080 ...");
 });
