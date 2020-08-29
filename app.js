@@ -12,6 +12,6 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use('/', frontEnd);
 
-app.listen(80, function() {
+app.listen(8080, function() {
     console.log("Server running at port 3000, http://localhost:3000 ...");
 });
