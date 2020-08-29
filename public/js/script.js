@@ -26,8 +26,10 @@ function onPageScroll() {
         $("#navbar").removeClass("home");
         $("#navbar").addClass("sticky");
     } else {
-        $("#navbar").addClass("home");
-        $("#navbar").removeClass("sticky");
+        if (!$('#navbar-menu-btn').hasClass("active")) {
+            $("#navbar").addClass("home");
+            $("#navbar").removeClass("sticky");
+        }
     }
 }
 

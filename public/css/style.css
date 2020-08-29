@@ -86,6 +86,10 @@ body {
         border: none;
         border-radius: 5px;
         text-align: center;
+        display: inline-block;
+      }
+      .btn-bold {
+        font-weight: bold;
       }
       .btn-sm {
         padding: 5px 10px 5px 10px;
@@ -115,6 +119,10 @@ box-shadow:  5px 5px 10px #929292,
   box-shadow: inset 5px 5px 10px #929292, 
               inset -5px -5px 10px #ffffff;
 }
+.neu-default.btn-primary {
+  color: #2F55A4;
+}
+
 
 .btn-flat {
   box-shadow: none;
@@ -179,6 +187,7 @@ box-shadow:  5px 5px 10px #929292,
       list-style-type: none;
       margin: 0;
       display: none;
+      overflow: auto;
   }
   .navbar .navbar-menus li {
     padding: 0;
@@ -187,6 +196,7 @@ box-shadow:  5px 5px 10px #929292,
   .navbar .navbar-menus li > a {
     margin: 10px 0px;
     border-radius: 10px;
+    font-size: 20px;
   }
 
   .navbar .navbar-menus li > a, .navbar .navbar-menus > a {
@@ -200,9 +210,10 @@ box-shadow:  5px 5px 10px #929292,
     color: black;
   }
 
-  .navbar .navbar-menus .btn {
+  .navbar .navbar-menus .btn, .navbar .navbar-menus a.btn {
     margin: 15px 50px 5px 50px;
     border-radius: 10px;
+    font-weight: bold;
 
   }
   .navbar .navbar-menus li ul {
@@ -272,4 +283,12 @@ box-shadow:  5px 5px 10px #929292,
   .our-app img {
     width: 100%;
     height: auto;
+  }
+  .our-app a {
+    padding: 10px;
+    display: block;
+    margin: 5px 5px;
+  }
+  .container.service {
+    text-align: center;
   }
