@@ -107,6 +107,8 @@ body {
         font-size: 25px;
       }
 
+    
+
 
 /* NEUMORPISM CLASSES */
 .neu-default {
@@ -131,9 +133,17 @@ box-shadow:  5px 5px 10px #929292,
   background-color: #4E71BA;
   color: white;
 }
-.btn-flat.btn-primary:hover {
+.btn-flat.btn-primary:hover, a.btn-flat.btn-primary:hover {
   background-color: #2F55A4;
   color: white;
+}
+.btn.btn-flat.btn-white, a.btn.btn-flat.btn-white {
+  background-color: white;
+  color: #2F55A4;
+}
+.btn.btn-flat.btn-white:hover, a.btn.btn-flat.btn-white:hover {
+  color: #2F477A;
+  background-color: #dfdfdf;
 }
 
 
@@ -266,6 +276,9 @@ box-shadow:  5px 5px 10px #929292,
     line-height: 55px;
     padding: 20px;
   }
+  .home-intro .intro .btn {
+    line-height: normal;
+  }
   .home-intro .intro h1 {
     font-size: 35px;
   }
@@ -274,6 +287,9 @@ box-shadow:  5px 5px 10px #929292,
     margin: 20px 10px;
     padding: 10px;
     border-radius: 5px;
+  }
+  .no-radius {
+    border-radius: 0;
   }
 
 
@@ -290,5 +306,20 @@ box-shadow:  5px 5px 10px #929292,
     margin: 5px 5px;
   }
   .container.service {
+    text-align: center;
+  }
+  .container.no-margin {
+    margin: 10px 0px;
+  }
+  .center-text {
+    text-align: center;
+  }
+  .container.open-account {
+    background-color: #000030;
+    color: white;
+  }
+
+
+  .footer {
     text-align: center;
   }
