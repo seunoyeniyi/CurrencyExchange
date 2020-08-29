@@ -215,13 +215,14 @@ box-shadow:  5px 5px 10px #929292,
       top: 60px;
       left: 0;
       padding: 10px;
+      padding-bottom: 20px;
       background-color: #E4E4E4;
       list-style-type: none;
       margin: 0;
       display: none;
       overflow: auto;
       overflow-y: auto;
-      height: 100vh;
+      height: calc(100vh - 60px);
   }
   .navbar .navbar-menus > li {
     padding: 0;
