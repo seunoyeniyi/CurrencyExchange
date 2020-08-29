@@ -1,0 +1,11 @@
+<!-- INPUT GROUP CODE -->
+        <!-- <div class="input-group">
+            <div class="input-group-icon">@</div>
+            <div class="input-group-area"><input class="form-control neu-form-control" type="text" placeholder="Email Address"></div>
+        </div>
+              <br>
+        <div class="input-group">
+            <div class="input-group-icon">Income:</div>
+            <div class="input-group-area"><input class="form-control neu-form-control no-radius" type="text" value="0.00"></div>
+            <div class="input-group-icon">$</div>
+        </div> -->
