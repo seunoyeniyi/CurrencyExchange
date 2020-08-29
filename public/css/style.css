@@ -11,7 +11,7 @@ body {
     color: #4E71BA;
     text-decoration: none;
     }
-    a:hover {
+    a:hover, a:active {
         color: #2F55A4;
     }
     img {
@@ -150,6 +150,13 @@ box-shadow:  5px 5px 10px #929292,
 .btn-flat {
   box-shadow: none;
 }
+.btn-form {
+  display: block;
+  width: 100%;
+}
+.btn-circle, a.btn-circle {
+  border-radius: 50%;
+}
 .btn-flat.btn-primary {
   background-color: #4E71BA;
   color: white;
@@ -169,6 +176,8 @@ box-shadow:  5px 5px 10px #929292,
 
 
 
+
+
     /* NAVBAR */
     .navbar {
         height: 60px;
@@ -182,6 +191,7 @@ box-shadow:  5px 5px 10px #929292,
         top: 0;
         width: 100%;
         box-shadow: grey 2px 2px 5px;
+        z-index: 999;
     }
  
     .navbar .site-identity {
@@ -285,6 +295,9 @@ box-shadow:  5px 5px 10px #929292,
   }
   
 
+  .navbar + .web-container {
+    padding-top: 60px;
+  }
   .navbar.home:not(.navbar-style) {
     background: none;
     border-bottom: none;
@@ -304,7 +317,6 @@ box-shadow:  5px 5px 10px #929292,
     /* background-size: cover; */
     height: auto;
     color: #31344B;
-    padding-top: 60px;
     padding-bottom: 50px;
   }
   .home-intro .intro {
@@ -396,3 +408,150 @@ box-shadow:  5px 5px 10px #929292,
     text-align: center;
     padding: 10px 10px 30px 10px;
   }
+
+
+
+  .form-heading {
+    text-align: center;
+  }
+  .form-sub-heading {
+    text-align: center;
+    font-weight: normal !important;
+
+  }
+
+  .form-group {
+    padding: 10px;
+  }
+
+
+
+  .neu-form-control {
+background: #E4E4E4;
+box-shadow: inset 5px 5px 10px #b6b6b6, 
+            inset -5px -5px 10px #ffffff;
+
+  }
+  .neu-form-control:focus {
+background: #E4E4E4;
+box-shadow: inset 5px 5px 24px #b6b6b6, 
+            inset -5px -5px 24px #ffffff;
+  }
+  .form-control {
+    border: none;
+    outline: 0;
+    padding: 10px;
+    font-size: 18px;
+    color: black;
+    border-radius: 5px;
+  }
+  .form-control-full {
+    width: 100%;
+    display: block;
+    margin: 5px 0px;
+  }
+  
+
+  .btn-check {
+    position: relative; 
+    padding-left: 45px; 
+    margin-bottom: 15px; 
+    cursor: pointer;
+} 
+  
+/* Hide the default checkbox */ 
+.btn-check input[type=checkbox] { 
+    visibility: hidden; 
+} 
+  
+/* Creating a custom checkbox 
+based on demand */ 
+.btn-check .mark { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    height: 20px; 
+    width: 20px;
+    border: 1px solid rgb(182, 179, 179);
+    border-radius: 5px;
+    background: #E4E4E4;
+box-shadow: inset 5px 5px 10px #b6b6b6, 
+            inset -5px -5px 10px #ffffff;
+} 
+  
+
+.btn-check input:checked ~ .mark { 
+  background: #E4E4E4;
+  box-shadow: inset 5px 5px 24px #b6b6b6, 
+              inset -5px -5px 24px #ffffff; 
+} 
+  
+/* Checkmark to be shown in checkbox */ 
+/* It is not be shown when not checked */ 
+.btn-check .mark:after { 
+    content: ""; 
+    position: absolute; 
+    display: none; 
+} 
+  
+/* Display checkmark when checked */ 
+.btn-check input:checked ~ .mark:after { 
+    display: block; 
+} 
+  
+/* Styling the checkmark using webkit */ 
+/* Rotated the rectangle by 45 degree and  
+showing only two border to make it look 
+like a tickmark */ 
+.btn-check .mark:after { 
+    left: 6px; 
+    bottom: 5px; 
+    width: 5px; 
+    height: 10px; 
+    border: solid black; 
+    border-width: 0 2px 2px 0; 
+    -webkit-transform: rotate(45deg); 
+    -ms-transform: rotate(45deg); 
+    transform: rotate(45deg); 
+} 
+
+.form-group-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+
+.input-group {
+  display: table;
+  border-collapse: collapse;
+  width:100%;
+  margin: 5px 0px;
+}
+.input-group > div{
+  display: table-cell;
+  border: 1px solid #ddd;
+  vertical-align: middle;  /* needed for Safari */
+}
+.input-group-icon {
+  color: #777;
+  padding: 0 12px;
+  background: linear-gradient(145deg, #f4f4f4, #cdcdcd);
+}
+.input-group-area {
+  width:100%;
+}
+.input-group-area .form-control {
+  border-radius: 0px 5px 5px 0px;
+}
+.input-group input{
+  border: 0;
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+.input-group input.no-radius {
+  border-radius: 0px;
+}
+.container.login-container {
+  padding: 5px;
+}

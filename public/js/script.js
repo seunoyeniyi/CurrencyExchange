@@ -5,6 +5,9 @@ $(function() {
             $(this).toggleClass("active");
         }
     });
+    $("input").focus(function (e) { 
+        $(this).closest("form").find("button[type='submit']").removeClass("active");
+    });
 
 
     $("#navbar-menus > li a").click(function (e) {
