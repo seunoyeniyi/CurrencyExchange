@@ -266,6 +266,9 @@ box-shadow:  5px 5px 10px #929292,
     grid-template-columns: 40px auto;
     padding: 5px;
   }
+  .navbar .navbar-menus li ul li.li-content a h4 {
+    font-size: 18px;
+  }
   .navbar .navbar-menus li ul li.li-content a > div:first-child {
     padding-top: 40px;
   }
