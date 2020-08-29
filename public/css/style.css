@@ -4,6 +4,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #E4E4E4;
     font-size: 16px;
+    /* color: #31344B; */
     }
     
     a {
@@ -57,6 +58,22 @@ body {
         .col-s-10 {width: 83.33%;}
         .col-s-11 {width: 91.66%;}
         .col-s-12 {width: 100%;}
+      }
+      /*FOR MOBILE*/
+      @media only screen and (max-width: 768px) {
+        /* For tablets: */
+        .col-sm-1 {width: 8.33%;}
+        .col-sm-2 {width: 16.66%;}
+        .col-sm-3 {width: 25%;}
+        .col-sm-4 {width: 33.33%;}
+        .col-sm-5 {width: 41.66%;}
+        .col-sm-6 {width: 50%;}
+        .col-sm-7 {width: 58.33%;}
+        .col-sm-8 {width: 66.66%;}
+        .col-sm-9 {width: 75%;}
+        .col-sm-10 {width: 83.33%;}
+        .col-sm-11 {width: 91.66%;}
+        .col-sm-12 {width: 100%;}
       }
     
     
@@ -116,6 +133,10 @@ background: #e4e4e4;
 box-shadow:  5px 5px 10px #929292, 
              -5px -5px 10px #ffffff;
 }
+.neu-default.active-only {
+  background: inherit;
+  box-shadow: none;
+  }
 .neu-default.active {
   background: #e4e4e4;
   box-shadow: inset 5px 5px 10px #929292, 
@@ -160,6 +181,7 @@ box-shadow:  5px 5px 10px #929292,
         left: 0;
         top: 0;
         width: 100%;
+        box-shadow: grey 2px 2px 5px;
     }
  
     .navbar .site-identity {
@@ -198,8 +220,10 @@ box-shadow:  5px 5px 10px #929292,
       margin: 0;
       display: none;
       overflow: auto;
+      overflow-y: auto;
+      height: 100vh;
   }
-  .navbar .navbar-menus li {
+  .navbar .navbar-menus > li {
     padding: 0;
     margin: 5px;
   }
@@ -249,13 +273,22 @@ box-shadow:  5px 5px 10px #929292,
     color: grey;
     font-weight: normal;
   }
+  .navbar .navbar-menus li ul {
+    padding: 0;
+  }
+  .navbar .navbar-menus li ul li.li-content, .navbar .navbar-menus li ul li > a {
+    margin: 0;
+    border-radius: 0;
+  }
+  
 
-  .navbar.home {
+  .navbar.home:not(.navbar-style) {
     background: none;
     border-bottom: none;
+    box-shadow: none;
   }
-  .navbar.home .site-identity a {color: white;}
-  .navbar.home .navbar-menu-btn {
+  .navbar.home:not(.navbar-style) .site-identity a {color: white;}
+  .navbar.home:not(.navbar-style) .navbar-menu-btn {
     background: none;
     color: white;
     box-shadow: none;
@@ -263,10 +296,11 @@ box-shadow:  5px 5px 10px #929292,
 
 
   .home-intro {
-    background-image: url(../images/home-intro-02.png);
-    background-size: cover;
+    background-color: none;
+    /* background-image: url(../images/home-intro-02.png); */
+    /* background-size: cover; */
     height: auto;
-    color: white;
+    color: #31344B;
     padding-top: 60px;
     padding-bottom: 50px;
   }
@@ -317,9 +351,45 @@ box-shadow:  5px 5px 10px #929292,
   .container.open-account {
     background-color: #000030;
     color: white;
+    padding-bottom: 30px;
   }
 
 
-  .footer {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .footer ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  .footer ul li {
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+  }
+  .footer ul li a {
+    display: block;
+  }
+  .footer a {
+    color: rgb(94, 93, 93);
+  }
+  .footer a:hover {
+    color: rgb(24, 23, 23);
+  }
+  .footer .copyright {
     text-align: center;
+    padding: 10px 10px 30px 10px;
   }
