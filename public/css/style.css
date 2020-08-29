@@ -309,15 +309,15 @@ box-shadow:  5px 5px 10px #929292,
   }
   .home-intro .intro {
     text-align: center;
-    margin-top: 30px;
-    line-height: 55px;
+    margin-top: 0px;
+    line-height: 45px;
     padding: 20px;
   }
   .home-intro .intro .btn {
     line-height: normal;
   }
   .home-intro .intro h1 {
-    font-size: 35px;
+    font-size: 30px;
   }
 
   .container {
