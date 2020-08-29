@@ -230,7 +230,7 @@ box-shadow:  5px 5px 10px #929292,
   .navbar .navbar-menus li > a {
     margin: 10px 0px;
     border-radius: 10px;
-    font-size: 20px;
+    /* font-size: 18px; */
   }
 
   .navbar .navbar-menus li > a, .navbar .navbar-menus > a {
