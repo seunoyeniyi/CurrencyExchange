@@ -1,4 +1,7 @@
 var express = require('express');
+var db = require('./db');
+var Users = db.Users;
+
 var router = express.Router();
 
 router.get('/', function(req, res) {
@@ -32,8 +35,28 @@ router.post('/login', function(req, res) {
     console.log(document.cookie);
 });
 router.post('/register', function(req, res) {
-    res.send("Hello submitted");
-    console.log(document.cookie);
+    var form = req.body;
+    // console.log(form);
+    Users.find(function(err, response) {
+        console.log(response);
+    });
+    var user = new Users({
+        username: form.username,
+        email: form.email,
+        passowrd: form.passowrd
+    });
+
+    // user.save(function (err, Users) { {
+    //     if (err) 
+    //         res.send('Database error');
+    //     else
+    //         res.send("Person added");
+
+    // }});
+
+    
+
+    res.send("hello world");
 });
 
 
