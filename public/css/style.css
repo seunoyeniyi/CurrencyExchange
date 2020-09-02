@@ -133,6 +133,11 @@ background: #e4e4e4;
 box-shadow:  5px 5px 10px #929292, 
              -5px -5px 10px #ffffff;
 }
+.neu-default-alert {
+  background: #E3E3E3;
+  box-shadow: inset 20px 20px 42px #dadada, 
+              inset -20px -20px 42px #ececec;
+}
 .neu-default.active-only {
   background: inherit;
   box-shadow: none;
@@ -555,3 +560,25 @@ like a tickmark */
 .container.login-container {
   padding: 5px;
 }
+
+.form-error {
+  color: #A91E2C;
+  text-align: right;
+  font-size: 13px;
+}
+.alert {
+  border-radius: 10px;
+  padding: 1px 15px;
+  margin: 10px;
+  font-size: 14px;
+}
+.alert .close, .alert a.close {
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+.alert.alert-danger {
+  color: #A91E2C;
+}
+.alert.alert-danger a.close {color: #A91E2C;}
+.alert.alert-danger a.close:hover {color: black;}

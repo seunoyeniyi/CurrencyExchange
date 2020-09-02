@@ -8,6 +8,12 @@ $(function() {
     $("input").focus(function (e) { 
         $(this).closest("form").find("button[type='submit']").removeClass("active");
     });
+    $("input").change(function (e) { 
+        $(this).closest("form").find("button[type='submit']").removeClass("active");
+    });
+    $(".alert .close").click(function () {
+        $(this).closest(".alert").hide();
+    });
 
 
     $("#navbar-menus > li a").click(function (e) {

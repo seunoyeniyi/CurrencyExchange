@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var session = require('express-session');
 
 var app = express();
 var upload = multer();
@@ -19,6 +20,7 @@ app.use(cookieParser());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({extended: true})); // for form urlecoded
 app.use(upload.array()); //for parsing multipart/form-data
+app.use(session({secret: "hello-world", resave: false, saveUninitialized: true}));
 app.use(express.static(__dirname + '/public'));
 app.use('/', frontEnd);
 
