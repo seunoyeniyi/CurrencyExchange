@@ -14,14 +14,16 @@ var is_logged = function(req) {
     if (!session.secret_key) {
         returned = false;
     } else {
-        var sess = Sessions.findOne({secret_key: session.secret_key}, function(err, response) {
+        (async () => {
+            await Sessions.findOne({secret_key: session.secret_key}, function(err, response) {
             
             if (!response || err) {
                 returned = false;
             } else {
                 // get the user id
                 var userID = response.user_id;
-                var us = Users.findById(userID.toString(), function (err, response) {
+                (async () => {
+                    await Users.findById(userID.toString(), function (err, response) {
                     if (!response || err) {
                         returned = false;
                     } else {
@@ -31,8 +33,10 @@ var is_logged = function(req) {
                     
 
                 });
+            })();
             }
         });
+    })();
 
     }
     

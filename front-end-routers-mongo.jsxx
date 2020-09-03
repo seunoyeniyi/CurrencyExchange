@@ -4,6 +4,7 @@ var bcript = require('bcryptjs');
 var url = require('url');
 var guser = require('./user-functions');
 
+
 // database collections
 var Users = db.Users;
 var Sessions = db.Sessions;
