@@ -6,30 +6,57 @@
         <h2 class="form-heading">Create an Account</h2>
         <h5 class="form-sub-heading">Create an Account here using your email and password</h5>
 
+        <% if (locals.error) { if (error.system) { %> 
+        <div class="alert alert-danger neu-default-alert no-active">
+            <a href="javascript:void(0);" class="close">&times;</a>
+                <p><b><i class="fa fa-bomb"></i> Error!</b> An error occured while trying to sign you up, please contact us, if you see any of this error.</p>
+        </div>
+        <% }} %> 
+
+        <% if (locals.error) { %> 
+        <div class="alert alert-danger neu-default-alert no-active">
+            <a href="javascript:void(0);" class="close">&times;</a>
+                <p><b><i class="fa fa-bomb"></i> Error!</b> Please provide a correct details.</p>
+        </div>
+        <% } %> 
+
+        <div class="form-group">
+            <label>Username</label>
+            <% if (locals.error) { if (error.username) { %> 
+                <p class="form-error">Username already exist!</p>
+            <% }} %>
+            <div class="input-group">
+                <div class="input-group-icon"><i class="fa fa-user"></i></div>
+                <div class="input-group-area"><input value="<% if (locals.form) { %><%= form.username %><% } %>" class="form-control neu-form-control" type="text" name="username" placeholder="Username" required></div>
+            </div>
+        </div>
         <div class="form-group">
             <label>Your email</label>
+            <% if (locals.error) { if (error.email) { %> 
+                <p class="form-error">Email already exist!</p>
+            <% }} %> 
             <div class="input-group">
                 <div class="input-group-icon"><i class="fa fa-at"></i></div>
-                <div class="input-group-area"><input class="form-control neu-form-control" type="email" name="email" placeholder="Email" required></div>
+                <div class="input-group-area"><input value="<% if (locals.form) { %><%= form.email %><% } %>" class="form-control neu-form-control" type="email" name="email" placeholder="Email" required></div>
             </div>
         </div>
         <div class="form-group">
             <label>Password</label>
+            <% if (locals.error) { if (error.password) { %> 
+                <p class="form-error">Please enter a secured password.</p>
+            <% }} %> 
             <div class="input-group">
                 <div class="input-group-icon"><i class="fa fa-unlock-alt"></i></div>
-                <div class="input-group-area"><input class="form-control neu-form-control" type="password" name="password" placeholder="Password" required></div>
+                <div class="input-group-area"><input min="5" minlength="5" class="form-control neu-form-control" type="password" name="password" placeholder="Password" required></div>
             </div>
         </div>
+        
         <div class="form-group">
-            <label>Confirm Password</label>
-            <div class="input-group">
-                <div class="input-group-icon"><i class="fa fa-unlock-alt"></i></div>
-                <div class="input-group-area"><input class="form-control neu-form-control" type="password" name="password" placeholder="Password" required></div>
-            </div>
+            <label class="btn-check">I agree to the terms and conditions <input type="checkbox" name="privacy" required><span class="mark"></span></label>
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn neu-default btn-form">Sign up</button>
+            <button type="submit" class="btn neu-default btn-primary btn-form btn-bold">Sign up</button>
         </div>
         <div class="form-group" style="text-align: center;">
             <div style="margin: 5px;">or sign up with</div>
