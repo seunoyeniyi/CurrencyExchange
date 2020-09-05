@@ -1,0 +1,122 @@
+<%- include("header"); %> 
+
+<h1 class="page-heading">Profile</h1>
+<% if (locals.submitted) { %> 
+    <div class="alert alert-success neu-default-alert no-active">
+        <a href="javascript:void(0);" class="close">&times;</a>
+            <p><b><i class="fa fa-check"></i> Success!</b> Profile Updated!</p>
+    </div>
+<% } %>
+<% if (locals.password_changed) { %> 
+    <div class="alert alert-success neu-default-alert no-active">
+        <a href="javascript:void(0);" class="close">&times;</a>
+            <p><b><i class="fa fa-check"></i> Success!</b> Password Updated!</p>
+    </div>
+<% } %>
+<% if (locals.error) { if(error.message) { %> 
+    <div class="alert alert-danger neu-default-alert no-active">
+        <a href="javascript:void(0);" class="close">&times;</a>
+            <p><b><i class="fa fa-check"></i> Message!</b> <%= error.message %> </p>
+    </div>
+<% }} %>
+
+
+<% if (locals.error) { %>
+    <div class="alert alert-danger neu-default-alert no-active">
+    <% if (error.password_confirm_error) { %>
+        <p class="">* Password confirmation is not equal.</p>
+    <% } %> 
+    <% if (error.less_password) { %>
+        <p class="">* Password must be greater than 5.</p>
+    <% } %>
+    <% if (error.old_password_error) { %>
+        <p class="">* Incorrect old password</p>
+    <% } %>
+    </div>
+<% } %> 
+<form action="/profile" method="POST" name="profile" enctype="multipart/form-data">
+    <div class="form-group user-profile-pic">
+        <img id="user-pic-preview" src="images/icons8_user_male_circle_100px_1.png">
+        <input id="pic-select" type="file" name="picture" class="btn neu-default">
+    </div>
+
+
+    <div class="form-group">
+        <label>Username</label>
+        <div class="input-group">
+            <div class="input-group-icon"><i class="fa fa-user"></i></div>
+            <div class="input-group-area"><input value="<%= current_user.username %>" class="form-control neu-form-control" type="text" name="username" placeholder="Username" disabled></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <div class="input-group">
+            <div class="input-group-icon"><i class="fa fa-at"></i></div>
+            <div class="input-group-area"><input value="<%= current_user.email %>" class="form-control neu-form-control" type="email" name="email" placeholder="Email" disabled></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Age</label>
+        <div class="input-group">
+            <div class="input-group-icon"><i class="fa fa-calendar"></i></div>
+            <div class="input-group-area"><input value="<%= current_user.age %>" class="form-control neu-form-control" type="number" name="age" placeholder="Age"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Gender</label>
+        <div class="input-group">
+            <div class="input-group-icon"><i class="fa fa-user-o"></i></div>
+            <div class="input-group-area"><input value="<%= current_user.gender %>" class="form-control neu-form-control" type="text" name="gender" placeholder="Gender"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Nationality</label>
+        <div class="input-group">
+            <div class="input-group-icon"><i class="fa fa-globe"></i></div>
+            <div class="input-group-area"><input value="<%= current_user.nationality %>" class="form-control neu-form-control" type="text" name="nationality" placeholder="Nationality"></div>
+        </div>
+    </div>
+    
+
+    <div class="form-group">
+        <label class="btn-check">Change Password <input id="change-password" type="checkbox" name="change-password"><span class="mark"></span></label>
+    </div>
+
+    <div id="password-board" style="display: none;">
+    <div class="form-group">
+        <h3>Change Password</h3>
+        <% if (locals.error) { if (error.password) { %> 
+            <p class="form-error"><%= error.message %> </p>
+        <% }} %>
+
+
+        <label>Old Password</label>
+        <div class="input-group">
+            <div class="input-group-icon"><i class="fa fa-unlock-alt"></i></div>
+            <div class="input-group-area"><input min="5" minlength="5" class="form-control neu-form-control" type="password" name="old-password" placeholder="Old Password"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>New Password</label>
+        <div class="input-group">
+            <div class="input-group-icon"><i class="fa fa-unlock-alt"></i></div>
+            <div class="input-group-area"><input id="new-password1" min="5" minlength="5" class="form-control neu-form-control" type="password" name="new-password1" placeholder="New Password"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Confirm new Password</label>
+        <div class="input-group">
+            <div class="input-group-icon"><i class="fa fa-unlock-alt"></i></div>
+            <div class="input-group-area"><input min="5" minlength="5" class="form-control neu-form-control" type="password" name="new-password2" placeholder="Confirm new Password"></div>
+        </div>
+    </div>
+    </div>
+    
+
+    <div class="form-group">
+        <button type="submit" class="btn neu-default btn-form btn-bold">Update Profile</button>
+    </div>
+</form>
+
+<%- include("footer"); %> 

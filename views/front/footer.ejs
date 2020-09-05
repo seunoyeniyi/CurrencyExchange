@@ -7,11 +7,14 @@
         <div class="col-4 col-sm-6">
             <h3>Account</h3>
             <ul>
-                <li class="neu-default active-only"><a href="javascript:void(0);">My Account</a></li>
-                <li class="neu-default active-only"><a href="javascript:void(0);">Settings</a></li>
-                <li class="neu-default active-only"><a href="javascript:void(0);">Messages</a></li>
-                <li class="neu-default active-only"><a href="/register">Sign up</a></li>
-                <li class="neu-default active-only"><a href="/login">Sign in</a></li>
+                <% if (current_user.logged) { %>
+                    <li class="neu-default active-only"><a href="javascript:void(0);">My Account</a></li>
+                    <li class="neu-default active-only"><a href="javascript:void(0);">Settings</a></li>
+                    <li class="neu-default active-only"><a href="javascript:void(0);">Messages</a></li>
+                <% } else { %> 
+                    <li class="neu-default active-only"><a href="/register">Sign up</a></li>
+                    <li class="neu-default active-only"><a href="/login">Sign in</a></li>
+                <% } %> 
             </ul>
         </div>
         <div class="col-4 col-sm-6">
@@ -23,7 +26,7 @@
             </ul>
         </div>
         <div class="col-4">
-            <h3>Compnay</h3>
+            <h3>Company</h3>
             <ul>
                 <li class="neu-default active-only"><a href="javascript:void(0);">Contact</a></li>
                 <li class="neu-default active-only"><a href="javascript:void(0);">Learn</a></li>

@@ -327,14 +327,14 @@ box-shadow:  5px 5px 10px #929292,
   .home-intro .intro {
     text-align: center;
     margin-top: 0px;
-    line-height: 45px;
+    line-height: 35px;
     padding: 20px;
   }
   .home-intro .intro .btn {
     line-height: normal;
   }
   .home-intro .intro h1 {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .container {
@@ -455,6 +455,12 @@ box-shadow: inset 5px 5px 24px #b6b6b6,
     display: block;
     margin: 5px 0px;
   }
+  .form-control.neu-default:disabled, .neu-form-control:disabled {
+    color: black;
+    box-shadow: none;
+    border: 1px solid rgb(201, 201, 201);
+  }
+  
   
 
   .btn-check {
@@ -537,7 +543,7 @@ like a tickmark */
   vertical-align: middle;  /* needed for Safari */
 }
 .input-group-icon {
-  color: #777;
+  color: rgb(54, 52, 52);
   padding: 0 12px;
   border-radius: 5px 0px 0px 5px;
   background: linear-gradient(145deg, #f4f4f4, #cdcdcd);
@@ -582,6 +588,12 @@ like a tickmark */
 }
 .alert.alert-danger a.close {color: #A91E2C;}
 .alert.alert-danger a.close:hover {color: black;}
+/* success alert */
+.alert.alert-success {
+  color: #8aa104;
+}
+.alert.alert-success a.close {color: #8aa104;}
+.alert.alert-success a.close:hover {color: black;}
 
 .balance-div h2 {
   font-weight: normal;
@@ -591,7 +603,10 @@ like a tickmark */
   font-weight: bolder;
 }
 
-
+.page-heading {
+  margin-left: 20px;
+  color: rgb(63, 62, 62);
+}
 .quick-deal > a {
   display: flex;
   justify-content: center;
@@ -650,4 +665,22 @@ like a tickmark */
 .stats ul li img {
   height: 30px;
   width: 30px;
+}
+
+
+.user-profile-pic {
+  text-align: center;
+}
+.user-profile-pic img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+
+form label.error {
+  text-align: right;
+  display: block;
+  color: #A91E2C;
+  font-size: 13px;
 }

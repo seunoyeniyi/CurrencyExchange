@@ -5,6 +5,7 @@
     <form action="/login" method="POST">
     <% if (locals.redir) { %> <input type="hidden" name="redir" value="<%= redir %>"> <% } %> 
         <h2 class="form-heading">Sign in to xChange</h2>
+        <h3 style="text-align: center;">Dont'have account? <a href="/register">Register new Account</a></h3>
         <h5 class="form-sub-heading">Login here using your username and password</h5>
 
         <div class="form-group">

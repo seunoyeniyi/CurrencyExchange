@@ -29,6 +29,91 @@ $(function() {
         }
     });
 
+    $("#change-password").change(function() {
+        if (this.checked) {
+            $("#password-board").slideDown();
+        } else {
+            $("#password-board").slideUp();
+        }
+    });
+    // registration form validation
+    $("form[name='register']").validate({
+        rules: {
+            username: {
+                required: true,
+                minlength: 4
+            },
+            email: { required: true },
+            privacy: {
+                required: true,
+            },
+            password: { required: true, minlength: 5}
+        },
+            messages: {
+                username: {
+                    required: "Username is required.",
+                    minlength: "Enter username greater than 3"
+                },
+                privacy: {
+                    required: "You must agree to the terms and conditions"
+                },
+                email: { required: "Email is required."},
+                password: {required: "Password required.", minlength: "Password must be greater than 5."}
+            },
+            errorPlacement: function(error, element) {
+                error.prepend("* ");
+                if (element.closest(".input-group").length) {
+                    element.closest(".input-group").before(error);
+                } else {
+                    error.insertBefore(element);
+                }
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+    });
+
+    // profile form validation
+    $("form[name='profile']").validate({
+        rules: {
+            "new-password1": {
+                minlength: 5
+            },
+            "new-password2": {
+                minlength: 5,
+                equalTo: "#new-password1"
+            },
+        },
+            messages: {
+                
+            },
+            errorPlacement: function(error, element) {
+                error.prepend("* ");
+                if (element.closest(".input-group").length) {
+                    element.closest(".input-group").before(error);
+                } else {
+                    error.insertBefore(element);
+                }
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+    });
+
+    // user upload profile pic preview
+    $("#pic-select").change(function() {
+        var file = $(this).get(0).files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                $("#user-pic-preview").attr("src", reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+
+
 });
 
 window.onscroll = (function(){onPageScroll();});

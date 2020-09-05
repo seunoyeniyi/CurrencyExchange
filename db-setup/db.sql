@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(1000),
     password VARCHAR(2000),
     age INT,
+    gender VARCHAR(500),
     nationality VARCHAR(1000),
     status VARCHAR(1000) DEFAULT 'active',
     role VARCHAR(1000) DEFAULT 'user',

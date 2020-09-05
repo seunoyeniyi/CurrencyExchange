@@ -11,7 +11,7 @@ var is_logged = function(req, output) {
             if (err) throw err;
 
             if (Object.keys(result).length > 0) {
-                output(true);output
+                output(true);
             } else {
                 output(false);
             }
@@ -21,7 +21,24 @@ var is_logged = function(req, output) {
     }
 };
 
+function get_user(id, user) {
+    db.query("SELECT * FROM users WHERE ID=" + db.escape(id), function(err, result) {
+        if (err) throw err;
+
+        if (Object.keys(result).length > 0) {
+            user(result[0]);
+        } else {
+            user(null);
+        }
+
+    });
+}
+
+var current_user = {};
+
 
 module.exports = {
     is_logged: is_logged,
+    current_user: current_user,
+    get_user: get_user
 };

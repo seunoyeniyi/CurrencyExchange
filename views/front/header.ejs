@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/script.js"></script>
 </head>
 <body>
@@ -49,19 +50,23 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" class="neu-default">Rates Calc.</a></li>
+            <% if (current_user.logged) { %>
+            <li><a href="javascript:void(0);" class="neu-default">Messages</a></li>
             <li><a href="javascript:void(0);" class="neu-default">My Account <i class="fa fa-caret-down"></i></a>
                 <ul class="neu-default no-active">
                     <li><a href="/dashboard" class="neu-default active-only">Dashboard</a></li>
+                    <li><a href="/profile" class="neu-default active-only">Profile</a></li>
                     <li><a href="javascript:void(0);" class="neu-default active-only">Transactions</a></li>
                     <li><a href="javascript:void(0);" class="neu-default active-only">Wallet</a></li>
                     <li><a href="javascript:void(0);" class="neu-default active-only">Logout</a></li>
                 </ul>
             </li>
-            <li><a href="/login" class="neu-default">Sign in</a></li>
+            <% } %>
+            <li><a href="javascript:void(0);" class="neu-default">Rates Calc.</a></li>
+            <% if (!current_user.logged) { %><li><a href="/login" class="neu-default">Sign in</a></li><% } %> 
             <li><a href="javascript:void(0);" class="neu-default">Blog</i></a></li>
             <li><a href="javascript:void(0);" class="neu-default">Help</i></a></li>
-            <a href="/login" class="btn btn-primary neu-default btn-primary btn-bold">Get Started</a>
+            <% if (!current_user.logged) { %><a href="/login" class="btn btn-primary neu-default btn-primary btn-bold">Get Started</a> <% } %> 
 
         </ul>
         <button id="navbar-menu-btn" class="navbar-menu-btn neu-default"><i class="fa fa-bars"></i></button>

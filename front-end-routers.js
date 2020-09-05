@@ -26,6 +26,10 @@ var pages = {
     dashboard: {
         name: "dashboard",
         title: "Dashboard"
+    },
+    profile: {
+        name: "profile",
+        title: "Profile"
     }
 };
 
@@ -37,20 +41,58 @@ router.use(function(req, res, next) {
     if (req.cookies.secret_key) {
         req.session.secret_key = req.cookies.secret_key;
     }
+    // add session variable to all pages;
+    if (req.session) {
+        res.locals.session = req.session;
+    }
+    // add current user data to all pages;
+    guser.is_logged(req, function(x) {
+        // user logged
+        guser.current_user.logged = true;
+        // user data
+        if (x) {
+            db.query("SELECT users.* FROM users INNER JOIN sessions ON users.ID=sessions.user_id AND sessions.secret_key=" + db.escape(req.session.secret_key), function(err, result) {
+                if (err) throw err;
+                for (var i in result[0]) {
+                    if (i != "password")
+                        guser.current_user[i] = result[0][i];
+                }
+                // continue next()
+                next();
+            });
+        } else {
+            // continue next()
+            next();
+        }
+        // add the user data to all pages;
+        res.locals.current_user = guser.current_user;
+    });
 
-    // continue next()
-    next();
 });
+
+
+
+
+
+
+
+
+
+
 
 // GET ROUTES
 router.get('/', function(req, res) {
     res.render('front/index', {page: pages.home});
 });
 router.get('/login', function(req, res) {
-    if (req.query.redir) {
-        res.render("front/login", {page: pages.login, redir: req.query.redir});
+    if (guser.current_user.logged) {
+        res.redirect("/dashboard"); res.end();
     } else {
-        res.render("front/login", {page: pages.login});
+        if (req.query.redir) {
+            res.render("front/login", {page: pages.login, redir: req.query.redir});
+        } else {
+            res.render("front/login", {page: pages.login});
+        }
     }
     
 });
@@ -58,21 +100,38 @@ router.get('/register', function(req, res) {
     res.render("front/register", {page: pages.register});
 });
 router.get('/dashboard', function(req, res) {
-        guser.is_logged(req, function(x) {
-            if (x) {
-                res.render('front/dashboard', {page: pages.dashboard});
-            } else {
-                res.redirect(url.format({
-                    pathname: "/login",
-                    query: {
-                        "redir": req.url
-                    }
-                }));
-                res.end();
+    if (guser.current_user.logged) {
+        res.render('front/dashboard', {page: pages.dashboard});
+    } else {
+        res.redirect(url.format({
+            pathname: "/login",
+            query: {
+                "redir": req.url
             }
-            
-        });
+        }));
+        res.end();
+    }
 });
+router.get('/profile', function(req, res) {
+    if (guser.current_user.logged) {
+        res.render('front/profile', {page: pages.profile});
+    } else {
+        res.redirect(url.format({
+            pathname: "/login",
+            query: {
+                "redir": req.url
+            }
+        }));
+        res.end();
+    }
+});
+
+
+
+
+
+
+
 
 // POST ROUTES
 router.post('/register', function(req, res) {
@@ -200,6 +259,60 @@ router.post('/login', function(req, res) {
         }
     });
 
+});
+
+router.post('/profile', function(req, res) {
+    if (guser.current_user.logged) {
+        // user logged
+        var form = req.body;
+        var error = {};
+        db.query("UPDATE users SET age=" + db.escape(form.age) + ", gender=" + db.escape(form.gender) + ", nationality=" + db.escape(form.nationality) + " WHERE ID=" + db.escape(guser.current_user.ID), function(err, result) {
+            if (err) { throw err; error.system = true; }
+            if (result.affectedRows < 1) error.message = "Unable to update your profile.";
+
+            if (Object.keys(error).length > 0) {
+                res.render("front/profile", {page: pages.profile, error: error});
+            } else {
+                guser.get_user(guser.current_user.ID, function(user) {
+                    user.logged = true; //incase of render to pages;
+                    // change password
+                if (form["change-password"]) {
+                    var oldPass = form["old-password"];
+                    var newPass1 = form["new-password1"];
+                    var newPass2 = form["new-password2"];
+                    if (newPass1 != newPass2) error.password_confirm_error = true;
+                    if (newPass1.length < 5 || newPass2.length < 5) error.less_password = true;
+    
+                        gfunc.compare(oldPass, user.password, function(err, isMatch) {
+                            if (!isMatch) error.old_password_error = true;
+                            if (Object.keys(error).length > 0) {
+                                res.render("front/profile", {page: pages.profile, current_user:user,  submitted: true, error: error});
+                            } else {
+                                // update password
+                                gfunc.hash(newPass1, function(err, hash) {
+                                    db.query("UPDATE users SET password=" + db.escape(hash) + " WHERE ID=" + db.escape(guser.current_user.ID), function(err, result) {
+                                        if (err) throw err;
+                                        if (result.affectedRows < 1) error.password_change_error = true;
+                                        res.render("front/profile", {page: pages.profile, current_user:user, password_changed: (result.affectedRows > 0), submitted: true, error: error});
+                                    });
+                                });
+                            }
+                    });
+                } else {
+                    res.render("front/profile", {page: pages.profile, current_user: user, submitted: true});
+                }
+            });
+            }
+        });
+    } else {
+        res.redirect(url.format({
+            pathname: "/login",
+            query: {
+                "redir": req.url
+            }
+        }));
+        res.end();
+    }
 });
 
 
