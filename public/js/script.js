@@ -2,6 +2,8 @@ $(function() {
 
     $("button, li, a").click(function(e) {
         if (!$(this).hasClass("no-active")) {
+            $(this).siblings(".active").removeClass("active");
+            $(this).closest("li").siblings(".active").children("a").removeClass("active");
             $(this).toggleClass("active");
         }
     });

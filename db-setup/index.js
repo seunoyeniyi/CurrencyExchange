@@ -1,15 +1,10 @@
 var mysql = require('mysql');
-
+var site = require('../system-config');
 
 var databaseName = "currency_exchange"; //database name
 
 
-var conn = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: databaseName
-});
+var conn = mysql.createConnection(site.db);
 conn.connect(function(err, result) {
     if (err) throw err;
     console.log("Database connected!");

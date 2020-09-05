@@ -582,3 +582,29 @@ like a tickmark */
 }
 .alert.alert-danger a.close {color: #A91E2C;}
 .alert.alert-danger a.close:hover {color: black;}
+
+.balance-div h2 {
+  font-weight: normal;
+  margin: 5px;
+}
+.balance-div h2.balance {
+  font-weight: bolder;
+}
+
+
+.quick-deal > a {
+  /* display: grid;
+  grid-template-columns: 40px auto; */
+  display: block;
+  border-radius: 50px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+.quick-deal > a * {
+  /* display: inline-block; */
+}
+.quick-deal > a span {
+  margin-top: -50px;
+}

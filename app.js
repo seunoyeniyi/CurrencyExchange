@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var session = require('express-session');
+var site = require('./system-config');
 
 var app = express();
 var upload = multer();
@@ -24,6 +25,6 @@ app.use(session({secret: "hello-world", resave: false, saveUninitialized: true})
 app.use(express.static(__dirname + '/public'));
 app.use('/', frontEnd);
 
-app.listen(80, function() {
+app.listen(site.site.port, function() {
     console.log("Server running at port 8080, http://localhost:8080 ...");
 });
