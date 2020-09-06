@@ -4,6 +4,7 @@ var bcript = require('bcryptjs');
 var url = require('url');
 var guser = require('./user-functions');
 var gfunc = require('./functions');
+var fs = require('fs');
 
 // database collections
 
@@ -126,6 +127,12 @@ router.get('/profile', function(req, res) {
         }));
         res.end();
     }
+});
+router.get('/logout', function(req, res) {
+    res.clearCookie('secret_key');
+    req.session.secret_key = null;
+    res.redirect('/login');
+    res.end();
 });
 
 
@@ -277,6 +284,28 @@ router.post('/profile', function(req, res) {
             } else {
                 guser.get_user(guser.current_user.ID, function(user) {
                     user.logged = true; //incase of render to pages;
+                    // update profile picture
+                    try {
+                        if (req.files) {
+                            if (Object.keys(req.files).length > 0) {
+                            let picture = req.files.picture;
+                            var imgs = picture.mimetype.split('/');
+                            var uploadPath = "./public/uploads/images/";
+                            var publicPath = "/uploads/images/";
+                            var filename = user.username + "." + imgs[imgs.length - 1];
+                            if (imgs[0] == 'image') {
+                                user.picture = publicPath + filename; //update back to new
+                                picture.mv(uploadPath + filename, function(err) {
+                                    if (!err) {
+                                        db.query("UPDATE users SET picture=" + db.escape(publicPath + filename) + " WHERE ID=" + db.escape(user.ID), function (err, result) {
+                                            if (err) throw err;
+                                        });
+                                    }
+                                });
+                            }
+                        }}
+                    } catch(e) {}
+                    
                     // change password
                 if (form["change-password"]) {
                     var oldPass = form["old-password"];

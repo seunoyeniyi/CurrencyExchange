@@ -36,8 +36,8 @@
 <% } %> 
 <form action="/profile" method="POST" name="profile" enctype="multipart/form-data">
     <div class="form-group user-profile-pic">
-        <img id="user-pic-preview" src="images/icons8_user_male_circle_100px_1.png">
-        <label class="btn-file btn btn-primary neu-default"><input id="pic-select" type="file" name="picture" accept="image/*"> Change Picture</label>
+    <img class="neu-default" style="padding: 3px;" id="user-pic-preview" src="<% if (current_user.picture) { %><%= current_user.picture %><% } else { %>images/icons8_user_male_circle_100px_1.png<% } %>">
+        <br><br><label class="btn-file btn btn-primary neu-default"><input id="pic-select" type="file" name="picture" accept="image/*"> Change Picture</label>
     </div>
 
 
