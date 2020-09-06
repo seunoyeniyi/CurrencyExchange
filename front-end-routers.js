@@ -48,7 +48,7 @@ router.use(function(req, res, next) {
     // add current user data to all pages;
     guser.is_logged(req, function(x) {
         // user logged
-        guser.current_user.logged = true;
+        guser.current_user.logged = x;
         // user data
         if (x) {
             db.query("SELECT users.* FROM users INNER JOIN sessions ON users.ID=sessions.user_id AND sessions.secret_key=" + db.escape(req.session.secret_key), function(err, result) {
@@ -57,15 +57,17 @@ router.use(function(req, res, next) {
                     if (i != "password")
                         guser.current_user[i] = result[0][i];
                 }
+                // add the user data to all pages;
+                res.locals.current_user = guser.current_user;
                 // continue next()
                 next();
             });
         } else {
+            // add the user data to all pages;
+            res.locals.current_user = guser.current_user;
             // continue next()
             next();
         }
-        // add the user data to all pages;
-        res.locals.current_user = guser.current_user;
     });
 
 });

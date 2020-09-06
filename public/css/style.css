@@ -676,6 +676,9 @@ like a tickmark */
   height: 100px;
   border-radius: 50%;
 }
+.user-profile-pic .btn {
+  display: block;
+}
 
 
 form label.error {
@@ -683,4 +686,8 @@ form label.error {
   display: block;
   color: #A91E2C;
   font-size: 13px;
+}
+
+.btn-file input {
+  display: none;
 }
